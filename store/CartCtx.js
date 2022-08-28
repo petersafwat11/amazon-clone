@@ -3,13 +3,14 @@ import { createContext } from "react";
  const Ctx = createContext({
   totalAmount: 0, 
   items : [],
+  shippingDetalis: {},
+  paymentMethod: '',
   addItem: (item)=>{},
   removeItem : (item)=>{},
-  clearItems: ()=>{},
-  updateItem: ()=>{},
-  shippingDetalis: {},
+  clearItems: (item)=>{},
+  updateItem: (item)=>{},
   addShippingDetails:(item)=>{},
-  paymentMethod: ''
+  addPaymentMenthod: (item)=>{}
  }) 
 
 

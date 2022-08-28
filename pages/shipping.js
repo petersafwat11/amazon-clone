@@ -10,9 +10,9 @@ const shipping = () => {
         const router= useRouter();
       const { register, handleSubmit, setValue,formState: { errors }  } = useForm();
         const submitHandeler =({fullname, email,city,address,postalcode})=>{
-            const item = {fullname: fullname, email:email, city:city, address:address, postalcode:postalcode}
-            Cookies.set('shipping', JSON.stringify({fullname: fullname, email:email,address:address, city: city, postalcode:postalcode }));
-            context.addShippingDetails(item);
+            // const item = {fullname: fullname, email:email, address:address, city:city, postalcode:postalcode}
+            context.addShippingDetails({fullname: fullname, email:email, address:address, city:city, postalcode:postalcode});
+            Cookies.set('shipping', JSON.stringify({fullname: fullname, email:email,address:address, city: city, postalcode:postalcode }));                
             router.push('/payment')
         }
          const {shippingDetails}= context;

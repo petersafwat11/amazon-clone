@@ -18,17 +18,17 @@ const payment = () => {
             return toast.error('please select a payment method')
         }
         addPaymentMenthod(payment);
-        Cookies.set('payment',JSON.stringify(payment));  
+        Cookies.set('payment',JSON.stringify(payment)); 
         router.push('/placeorder');
     }
     useEffect(()=>{
         if(paymentMethod){
             setPayment(paymentMethod);
         }
-        if(!Cookies.get('shipping')){
+        if(!context.shippingDetails){
             router.push('/shipping')
         }
-    },[paymentMethod, router])
+    },[context, router])
   return (
     <Layout title='payment'>
         <CheckoutWizard num={2}></CheckoutWizard>

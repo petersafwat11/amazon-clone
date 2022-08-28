@@ -48,10 +48,11 @@ const reducerCart= (state, action)=>{
        return {...state, items: otherItems.concat(newOne), totalAmount: newTotalAmount};
     }
     if(action.type==='SHIPDET'){
-                console.log(action.item);
-         return{...state, shippingDetails: {fullname: action.item.fullname, email:action.item.email, address:action.item.address, city: action.item.city, postalcode:action.item.postalcode}}
+                // console.log(action.item);
+         return{...state, shippingDetails: action.item}
     }
-        if(action.type==='PAYMENT'){
+    if(action.type==='PAYMENT'){
+        console.log(action.item)
         return{...state, paymentMethod:action.item }
     }
 
@@ -87,8 +88,8 @@ const ContextProvider = (props) => {
         removeItem: removeItem,
         clearItems : clearItems,
         updateItem: updateItem,
-        addShippingDetails:(item)=>{},
-        addPaymentMenthod:(item)=>{},
+        addShippingDetails:addShippingDetails,
+        addPaymentMenthod:addPaymentMenthod,
     };
   return (
         <Ctx.Provider value={context}>

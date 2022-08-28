@@ -11,24 +11,27 @@ import { getError } from '../utils/error'
 import  {toast}  from 'react-toastify'
 const placeorder = () => {
     const [loading, setLoading]= useState(false)
+    const [dataLoading, setDataLoading]= useState(true);
     const context = useContext(Ctx);
     const {shippingDetails,paymentMethod, items,totalAmount } = context;
-    const [shipDet, setShipDet]= useState({fullname: '', email:'', address:'', city: '', postalcode:''});
-    const [payMethod, setPayMethod]= useState(null);
-    const [products, setProducts]= useState([]);
-    const [itemsPrice, setItemsPrice] = useState('');
+    // const [shipDet, setShipDet]= useState({fullname: '', email:'', address:'', city: '', postalcode:''});
+    // const [payMethod, setPayMethod]= useState(null);
+    // const [products, setProducts]= useState([]);
+    // const [itemsPrice, setItemsPrice] = useState('');
     const shipping = totalAmount<300? 30: 0;  
     const [tax, setTax] = useState(0);
     const router = useRouter();
     useEffect(()=>{
-        if(!Cookies.get('payment')){
+        if(!paymentMethod){
             router.push('/payment')
         }
-        setShipDet({fullname: shippingDetails.fullname, email:shippingDetails.email, shippingDetails: shippingDetails.address, city: shippingDetails.city, postalcode:shippingDetails.postalcode});
-        setPayMethod(paymentMethod);
-        setProducts(items);
-        setItemsPrice(totalAmount);
+        setDataLoading(true);
+        // setShipDet({fullname: shippingDetails.fullname, email:shippingDetails.email, address: shippingDetails.address, city: shippingDetails.city, postalcode:shippingDetails.postalcode});
+        // setPayMethod(paymentMethod);
+        // setProducts(items);
+        // setItemsPrice(totalAmount);
         setTax(Number(totalAmount) *.05);
+        setDataLoading(false);
     },[context]);
 
     const placeOrderHandeler = async () => {
@@ -41,47 +44,42 @@ const placeorder = () => {
             itemsPrice: totalAmount,
             taxPrice: tax,
             shippingPrice: shipping,
-            totalPrice: itemsPrice+tax+shipping};
+            totalPrice: totalAmount+tax+shipping};
       setLoading(true);
-      const { data } = await fetch('/api/orders', {
+      const data  = await fetch('/api/orders', {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
             'Content-Type': 'application/json'
             },
       });
-      setLoading(false);
-        context.clearItems();
-        Cookies.set('cart', '');
-        Cookies.set('total', '');
-        Cookies.set('shipping', '');
-        Cookies.set('payment', '');
-      router.push(`/pppp`);
+           setLoading(false);
+      data&&router.push(data.url);
+
     } catch (err) {
       setLoading(false);
       toast.error('getError(err)');
     }
   };
-const clickHand= async()=>{
-        const {dd} = await axios.get('/api/orders');
-        console.log(dd);
-}
   return (
     <Layout>
     <CheckoutWizard num='3'></CheckoutWizard>
-    <h2 className='text-2xl' onClick={clickHand}>Place Order</h2>
+    {
+        (shippingDetails&&paymentMethod&&items&&totalAmount) ? 
+    (<>
+    <h2 className='text-2xl' >Place Order</h2>
     <div className='grid lg:grid-cols-4 gap-4'>
         <div className='col-span-3'>
         <div className='card '>
             <p className='pb-3'>Shipping Address</p>
-            <p className='pb-2' >{shipDet.fullname}, {shipDet.email}, {shipDet.address}, {shipDet.city}, {shipDet.postalcode} </p>
+            <p className='pb-2' >{shippingDetails.fullname}, {shippingDetails.email}, {shippingDetails.address}, {shippingDetails.city}, {shippingDetails.postalcode} </p>
             <div className='text-semibold text-blue-400'>
                 <Link href='/shipping' >Edit</Link>
             </div>
         </div>
         <div className=' card '>
             <p className='pb-3'>Payment Method</p>
-            <p className='pb-2' >{payMethod} </p>
+            <p className='pb-2' >{paymentMethod} </p>
             <div className='text-semibold text-blue-400'>
                 <Link href='/payment' >Edit</Link>
             </div>
@@ -98,7 +96,7 @@ const clickHand= async()=>{
                     </tr>
                 </thead>
                 <tbody >
-                    { (products&& products.length>0)&& products.map((item)=>(
+                    { (items&& items.length>0)&& items.map((item)=>(
                         <tr key={item.slug} className='pr-3 my-3 flex items-center justify-between '>
                              <td><Link href={`/product/${item.slug}`} >
                                 <img className='w-12 mx-auto rounded cursor-pointer' src={item.image} alt={item.name}/>
@@ -125,7 +123,7 @@ const clickHand= async()=>{
                 <div className='text-xl'>Order Summary</div>
                 <div className=' flex items-center justify-between'>
                     <p >Items</p>
-                    <p>${itemsPrice}</p>
+                    <p>${totalAmount}</p>
                 </div>
                 <div className='flex items-center justify-between'>
                     <p>Tax</p>
@@ -137,16 +135,18 @@ const clickHand= async()=>{
                 </div>
                 <div className='flex items-center justify-between'>
                     <p>Total</p>
-                    <p>${itemsPrice+tax+shipping}</p>
+                    <p>${totalAmount+tax+shipping}</p>
                 </div>
                 <button className='primary-button w-full' onClick={placeOrderHandeler} >Place Order</button>
             </div>
         </div>
 
     </div>
+    </>):<div className='text-center text-red-400'>loading </div> 
+    }
     </Layout>
   )
 }
 
-export default placeorder
+export default placeorder;
 placeorder.auth= true;

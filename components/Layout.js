@@ -66,8 +66,8 @@ const Layout = ({title, children}) => {
             </div>
                 {clicked&&
               <div className=' p-2 bg-gray-50 absolute top-14 right-3 flex justify-between flex-col w-30  text-gray-500' >
-                <button className='text-lg font-semibold px-6 py-3 hover:bg-slate-300' >Profile</button>
-                <button className=' text-lg font-semibold px-6 py-3 hover:bg-slate-300'>Order History </button>
+                <button className='text-lg font-semibold px-6 py-3 hover:bg-slate-300' onClick={()=>{router.push('/profile')}}>Profile</button>
+                <button className=' text-lg font-semibold px-6 py-3 hover:bg-slate-300' onClick={()=>{router.push('/order-history')}}>Order History </button>
                 <button className='text-lg font-semibold px-6 py-3 hover:bg-slate-300' onClick={logoutHandeler}>Logout</button>
                 </div>}
         </header>
