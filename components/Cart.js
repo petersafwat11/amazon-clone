@@ -7,7 +7,6 @@ import data from '../utils/data'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
-import { Cookie } from '@mui/icons-material'
 const Cart = () => {
     const updateCartHandeler = (e ,item)=>{
         context.updateItem(e, item)

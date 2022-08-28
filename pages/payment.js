@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
-import CheckoutWizard from '../components/checkoutwizard'
+import CheckoutWizard from '../components/CheckoutWizard'
 import Ctx from '../store/CartCtx'
 import { useContext } from 'react'
 import { useRouter } from 'next/router'
