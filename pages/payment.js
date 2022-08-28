@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { useRouter } from 'next/router'
 import {toast} from 'react-toastify';
 import Cookies from 'js-cookie'
-const payment = () => {
+const PaymentScreen = () => {
     const context = useContext(Ctx);
     const {addPaymentMenthod, paymentMethod, shippingDetalis}=context;
     const router = useRouter();
@@ -49,5 +49,5 @@ const payment = () => {
   )
 }
 
-export default payment;
+export default PaymentScreen;
 payment.auth= true;

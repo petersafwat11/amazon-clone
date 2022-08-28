@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-const unauthorized = () => {
+const UnauthorizedPage = () => {
     const router =useRouter();
     const {message}= router.query; 
   return (
@@ -13,4 +13,4 @@ const unauthorized = () => {
   )
 }
 
-export default unauthorized
+export default UnauthorizedPage

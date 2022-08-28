@@ -54,7 +54,7 @@ const LoginScreen = () => {
             </div>
             <div className='flex flex-col'>
                 <button className='primary-button'> Login</button>
-                <p>don't have an account ? <span className='text-yellow-300 '>
+                <p>don&apos;t have an account ? <span className='text-yellow-300 '>
                    <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link></span>
                 </p>
             </div>

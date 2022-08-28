@@ -9,7 +9,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
  
-const profile = () => {
+const ProfileScreen = () => {
   const { data: session } = useSession();
     
     const router = useRouter();
@@ -86,5 +86,5 @@ const profile = () => {
   )
 }
 
-export default profile
+export default ProfileScreen
 profile.auth= true;

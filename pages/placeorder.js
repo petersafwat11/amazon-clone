@@ -9,15 +9,11 @@ import Layout from '../components/Layout'
 import Ctx from '../store/CartCtx'
 import { getError } from '../utils/error'
 import  {toast}  from 'react-toastify'
-const placeorder = () => {
+const PlaceorderScreen = () => {
     const [loading, setLoading]= useState(false)
     const [dataLoading, setDataLoading]= useState(true);
     const context = useContext(Ctx);
     const {shippingDetails,paymentMethod, items,totalAmount } = context;
-    // const [shipDet, setShipDet]= useState({fullname: '', email:'', address:'', city: '', postalcode:''});
-    // const [payMethod, setPayMethod]= useState(null);
-    // const [products, setProducts]= useState([]);
-    // const [itemsPrice, setItemsPrice] = useState('');
     const shipping = totalAmount<300? 30: 0;  
     const [tax, setTax] = useState(0);
     const router = useRouter();
@@ -26,10 +22,6 @@ const placeorder = () => {
             router.push('/payment')
         }
         setDataLoading(true);
-        // setShipDet({fullname: shippingDetails.fullname, email:shippingDetails.email, address: shippingDetails.address, city: shippingDetails.city, postalcode:shippingDetails.postalcode});
-        // setPayMethod(paymentMethod);
-        // setProducts(items);
-        // setItemsPrice(totalAmount);
         setTax(Number(totalAmount) *.05);
         setDataLoading(false);
     },[context]);
@@ -148,5 +140,5 @@ const placeorder = () => {
   )
 }
 
-export default placeorder;
+export default PlaceorderScreen;
 placeorder.auth= true;

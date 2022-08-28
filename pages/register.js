@@ -8,7 +8,7 @@ import {useRouter} from 'next/router'
 import axios from 'axios'
 import { toast } from 'react-toastify'
  
-const registerScreen = () => {
+const RegisterScreen = () => {
     const {data:session} = useSession();
     const router = useRouter();
      const{redirect} = router.query;
@@ -90,4 +90,4 @@ const registerScreen = () => {
   )
 }
 
-export default registerScreen
+export default RegisterScreen

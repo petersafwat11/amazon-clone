@@ -5,7 +5,7 @@ import CheckoutWizard from '../components/CheckoutWizard'
 import Ctx from '../store/CartCtx'
 import { useRouter } from 'next/router'
 import  Cookies  from 'js-cookie'
-const shipping = () => {
+const ShippingScreen = () => {
     const context = useContext(Ctx);
         const router= useRouter();
       const { register, handleSubmit, setValue,formState: { errors }  } = useForm();
@@ -66,6 +66,6 @@ const shipping = () => {
   )
 }
 
-export default shipping
+export default ShippingScreen
 
 shipping.auth= true;
