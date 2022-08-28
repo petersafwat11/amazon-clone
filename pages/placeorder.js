@@ -24,7 +24,7 @@ const PlaceorderScreen = () => {
         setDataLoading(true);
         setTax(Number(totalAmount) *.05);
         setDataLoading(false);
-    },[context]);
+    },[context, paymentMethod, router, totalAmount]);
 
     const placeOrderHandeler = async () => {
         setLoading(true)

@@ -82,7 +82,7 @@ if (successPay) {
         Cookies.set('total', '');
         Cookies.set('shipping', '');
         Cookies.set('payment', '');
-  },[]);
+  },[context]);
 const {
     shippingAddress,
     paymentMethod,

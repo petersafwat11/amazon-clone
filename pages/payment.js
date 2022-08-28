@@ -8,10 +8,10 @@ import {toast} from 'react-toastify';
 import Cookies from 'js-cookie'
 const PaymentScreen = () => {
     const context = useContext(Ctx);
-    const {addPaymentMenthod, paymentMethod, shippingDetalis}=context;
+    const {addPaymentMenthod, paymentMethod}=context;
     const router = useRouter();
-    const [payment, setPayment] = useState('');
-    const submitHandeler =(e)=>{
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+    const submitHandler =(e)=>{
         e.preventDefault();
         if(!payment){
             return toast.error('please select a payment method')
@@ -21,32 +21,45 @@ const PaymentScreen = () => {
         router.push('/placeorder');
     }
     useEffect(()=>{
-        if(paymentMethod){
-            setPayment(paymentMethod);
-        }
+            setPayment(paymentMethod || '');
         if(!context.shippingDetails){
             router.push('/shipping')
         }
-    },[context, router])
+    },[context, router, paymentMethod])
   return (
-    <Layout title='payment'>
-        <CheckoutWizard num={2}></CheckoutWizard>
-        <div className='text-2xl ml-[17%]'>Payment Method</div>
-        <form className='mx-auto max-w-[60%]' >
-            {['Paypal', 'Stripe', 'Cash'].map((step, index)=>(
-                <div key={step}>
-                    <input onChange={()=>{setPayment(step); }} type='radio' className='text-xl my-4 mx-2' id={step} name="paymentMethod" value={payment===step}/>
-                    <label className='text-xl' htmlFor={step} >{step}</label>
-                </div>
-            ))}
-            <div className='flex flex-col'>
-                <button className='primary-button' type='submit' onClick={(e)=>{submitHandeler(e)}}>Next</button>
-                <button type='button' className='default-button' onClick={()=>{router.push('/shipping')}}>Back</button>                
-            </div>
-        </form>
-    </Layout>
-  )
-}
+    <Layout title="Payment Method">
+      <CheckoutWizard activeStep={2} />
+      <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
+        <h1 className="mb-4 text-xl">Payment Method</h1>
+        {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
+          <div key={payment} className="mb-4">
+            <input
+              name="paymentMethod"
+              className="p-2 outline-none focus:ring-0"
+              id={payment}
+              type="radio"
+              checked={selectedPaymentMethod === payment}
+              onChange={() => setSelectedPaymentMethod(payment)}
+            />
 
+            <label className="p-2" htmlFor={payment}>
+              {payment}
+            </label>
+          </div>
+        ))}
+        <div className="mb-4 flex justify-between">
+          <button
+            onClick={() => router.push('/shipping')}
+            type="button"
+            className="default-button"
+          >
+            Back
+          </button>
+          <button className="primary-button">Next</button>
+        </div>
+      </form>
+    </Layout>
+  );
+}
 export default PaymentScreen;
 payment.auth= true;

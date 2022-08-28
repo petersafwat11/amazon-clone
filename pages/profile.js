@@ -17,7 +17,7 @@ const ProfileScreen = () => {
     useEffect(()=>{
         setValue('email', session.user.email);
         setValue('name', session.user.name)
-    },[session])
+    },[session, setValue])
    const { register, handleSubmit,getValues,setValue, formState: { errors } } = useForm();
     const formHandeler= async ({email, name, password})=>{
         try{

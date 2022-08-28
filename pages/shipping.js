@@ -26,7 +26,7 @@ const ShippingScreen = () => {
                 setValue('address',shippingDetails.address );
                 setValue('postalcode',shippingDetails.postalcode )
 
-        },[shippingDetails,setValue]);
+        },[shippingDetails,context,setValue, router]);
   return (
     <Layout title='shipping'>
         <CheckoutWizard num={1} ></CheckoutWizard>
