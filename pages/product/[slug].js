@@ -45,7 +45,7 @@ const ProductScreen = ({product}) => {
                  <Link href='/' > back to home page</Link>
               </div>
              <div className='grid md:grid-cols-4 gap-5  '>
-                <img src={product.image} className='col-span-2 ' alt={product.name}/>
+                <img src={product.image} className='md:col-span-2 ' alt={product.name}/>
                 <div>
                   <ul className='space-y-2 text-lg capitalize '>
                     <li className='uppercase font-semibold my-6' > {product.name}</li>

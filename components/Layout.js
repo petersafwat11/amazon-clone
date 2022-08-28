@@ -39,12 +39,12 @@ const Layout = ({title, children}) => {
                 </Link>
             </div>
             <div className=' flex relative '>
-              <input type='text' className='rounded-lg shadow w-40 md:w-60 p-2 ' placeholder='Search Products' />
+              <input type='text' className='rounded-lg shadow w-22 sm-w-20 md:w-60 p-1 md:p-2 ' placeholder='Search Products' />
               <span className='bg-yellow-300 w-[18%] hover:bg-gray-100 duration-200 ease-out cursor-pointer absolute top-0 right-0 h-full pl-1 pt-2 md:pl-3 rounded-tr-lg rounded-br-lg '>
                  <BsSearch size={20} className='text-gray-700 ' />
               </span>
             </div>
-            <div className='flex items-center justify-center space-x-4'>
+            <div className='flex items-center justify-center md:space-x-4'>
               <HeaderCartButton/>
               {
                 status==='loading'?

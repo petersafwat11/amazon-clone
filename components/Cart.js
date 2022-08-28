@@ -36,7 +36,7 @@ const Cart = () => {
                     { (context.items&& context.items.length>0)&& context.items.map((item)=>(
                         <tr key={item.slug}>
                              <td><Link href={`/product/${item.slug}`} >
-                                <img className='w-12 mx-auto rounded cursor-pointer' src={item.image} alt={item.name}/>
+                                <img className='w-10 md:w-12 mx-auto rounded cursor-pointer' src={item.image} alt={item.name}/>
                                 </Link> 
                              </td>
                             <td className='text-yellow-300'><Link href={`/product/${item.slug}`} >

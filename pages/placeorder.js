@@ -61,7 +61,7 @@ const PlaceorderScreen = () => {
     (<>
     <h2 className='text-2xl' >Place Order</h2>
     <div className='grid lg:grid-cols-4 gap-4'>
-        <div className='col-span-3'>
+        <div className='lg:col-span-3'>
         <div className='card '>
             <p className='pb-3'>Shipping Address</p>
             <p className='pb-2' >{shippingDetails.fullname}, {shippingDetails.email}, {shippingDetails.address}, {shippingDetails.city}, {shippingDetails.postalcode} </p>

@@ -5,7 +5,7 @@ const CheckoutWizard = ({num}) => {
     console.log(num)
   return (
     <>
-    <div className='flex ml-40 space-x-52'>
+    <div className='flex space-x-7 md:ml-40 md:space-x-52'>
      {['Login','Shipping Address','Payment Method','Place Order'].map((index, step)=>(
         <div key={step+1} className='flex flex-col items-center'>
           <div className=' mb-2 mt-2 bg-yellow-300 rounded-full px-2 w-6 cursor-pointer' >
