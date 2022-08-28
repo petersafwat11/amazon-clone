@@ -68,4 +68,4 @@ const ShippingScreen = () => {
 
 export default ShippingScreen
 
-shipping.auth= true;
+ShippingScreen.auth= true;

@@ -87,4 +87,4 @@ const ProfileScreen = () => {
 }
 
 export default ProfileScreen
-profile.auth= true;
+ProfileScreen.auth= true;

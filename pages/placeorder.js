@@ -141,4 +141,4 @@ const PlaceorderScreen = () => {
 }
 
 export default PlaceorderScreen;
-placeorder.auth= true;
+PlaceorderScreen.auth= true;

@@ -13,11 +13,11 @@ const PaymentScreen = () => {
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
     const submitHandler =(e)=>{
         e.preventDefault();
-        if(!payment){
+        if(!selectedPaymentMethod){
             return toast.error('please select a payment method')
         }
-        addPaymentMenthod(payment);
-        Cookies.set('payment',JSON.stringify(payment)); 
+        addPaymentMenthod(selectedPaymentMethod);
+        Cookies.set('payment',JSON.stringify(selectedPaymentMethod)); 
         router.push('/placeorder');
     }
     useEffect(()=>{
@@ -62,4 +62,4 @@ const PaymentScreen = () => {
   );
 }
 export default PaymentScreen;
-payment.auth= true;
+PaymentScreen.auth= true;
