@@ -21,7 +21,7 @@ const PaymentScreen = () => {
         router.push('/placeorder');
     }
     useEffect(()=>{
-            setPayment(paymentMethod || '');
+            setSelectedPaymentMethod(paymentMethod || '');
         if(!context.shippingDetails){
             router.push('/shipping')
         }
