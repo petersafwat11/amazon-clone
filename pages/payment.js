@@ -14,7 +14,6 @@ const PaymentScreen = () => {
     const submitHandeler =(e)=>{
         e.preventDefault();
         if(!payment){
-            
             return toast.error('please select a payment method')
         }
         addPaymentMenthod(payment);
