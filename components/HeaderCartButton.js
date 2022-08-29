@@ -4,11 +4,11 @@ import Ctx from '../store/CartCtx';
 import { useRouter } from 'next/router';
 const HeaderCartButton = () => {
   const router = useRouter();
-  let x=0; 
   const context = useContext(Ctx);
   const {items} = context;
   const [carItems, setCartItems] = useState('');
   useEffect(()=>{
+    let x=0; 
   if (items.length>0 ){const num = items.map(item=>(
     x = x+item.amount
   ))}
@@ -16,7 +16,7 @@ const HeaderCartButton = () => {
     x=0
   }
       setCartItems(x)
-  },[items,carItems ])
+  },[items,setCartItems ])
   
   
   const cartHandeler = ()=>{

@@ -9,6 +9,7 @@ import Layout from '../components/Layout'
 import Ctx from '../store/CartCtx'
 import { getError } from '../utils/error'
 import  {toast}  from 'react-toastify'
+import { useSession } from 'next-auth/react'
 const PlaceorderScreen = () => {
     const [loading, setLoading]= useState(false)
     const [dataLoading, setDataLoading]= useState(true);
@@ -17,6 +18,7 @@ const PlaceorderScreen = () => {
     const shipping = totalAmount<300? 30: 0;  
     const [tax, setTax] = useState(0);
     const router = useRouter();
+  const { data: session } = useSession()
     useEffect(()=>{
         if(!paymentMethod){
             router.push('/payment')
@@ -36,7 +38,8 @@ const PlaceorderScreen = () => {
             itemsPrice: totalAmount,
             taxPrice: tax,
             shippingPrice: shipping,
-            totalPrice: totalAmount+tax+shipping};
+            totalPrice: totalAmount+tax+shipping,
+            user:session.user._id };
       setLoading(true);
       const data  = await fetch('/api/orders', {
         method: "POST",
