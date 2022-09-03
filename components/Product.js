@@ -21,15 +21,14 @@ const OneProduct = ({product}) => {
     }
     context.addItem(item);
     toast.success('product added to the cart');
-
   }
   return (
     <div className='cart py-4' >
-        <Link href={'product/'+product.slug} >
+        <Link href={'/product/'+product.slug} >
            <img className='cursor-pointer w-full' src={product.image} alt={product.name}  />
         </Link>
         <div className='px-4 space-y-2 flex flex-col items-center justify-center'>
-             <Link href={'product/'+product.slug} >
+             <Link href={'/product/'+product.slug} >
                 <h2 className='cursor-pointer' >{product.name }</h2>
             </Link>
             <p>{product.brand }</p>

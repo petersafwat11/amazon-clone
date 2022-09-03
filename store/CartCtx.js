@@ -5,12 +5,14 @@ import { createContext } from "react";
   items : [],
   shippingDetalis: {},
   paymentMethod: '',
+  searchItems:[],
   addItem: (item)=>{},
   removeItem : (item)=>{},
   clearItems: (item)=>{},
   updateItem: (item)=>{},
   addShippingDetails:(item)=>{},
-  addPaymentMenthod: (item)=>{}
+  addPaymentMenthod: (item)=>{},
+  setSearchItems: (items)=>{}
  }) 
 
 

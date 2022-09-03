@@ -6,7 +6,8 @@ const defaultVal = {
     items: Cookies.get('cart')? JSON.parse(Cookies.get('cart')) : [] ,
     totalAmount : Cookies.get('total')? JSON.parse(Cookies.get('total')): '' ,
     shippingDetails:Cookies.get('shipping')? JSON.parse(Cookies.get('shipping')) : {},
-    paymentMethod: Cookies.get('payment')? JSON.parse(Cookies.get('payment')) : ''
+    paymentMethod: Cookies.get('payment')? JSON.parse(Cookies.get('payment')) : '',
+    searchItems: [],
 }
 const reducerCart= (state, action)=>{
     if(action.type=== 'ADD'){
@@ -55,6 +56,10 @@ const reducerCart= (state, action)=>{
         console.log(action.item)
         return{...state, paymentMethod:action.item }
     }
+    if(action.type==='SEARCH'){
+        console.log(action.items)
+        return{...state, searchItems:action.items }
+    }
 
     return defaultVal;
 }
@@ -79,17 +84,22 @@ const ContextProvider = (props) => {
     const addPaymentMenthod =(item)=>{
         dispatchCartAction({type:'PAYMENT', item: item})
     }
+    const setSearchItems = (items)=>{
+        dispatchCartAction({type:'SEARCH', items: items})
+    }
     const context ={
         items:  cartState.items ,
         shippingDetails:cartState.shippingDetails,
         paymentMethod: cartState.paymentMethod,
         totalAmount: cartState.totalAmount,
+        searchItems:cartState.searchItems,
         addItem: addItem,
         removeItem: removeItem,
         clearItems : clearItems,
         updateItem: updateItem,
         addShippingDetails:addShippingDetails,
         addPaymentMenthod:addPaymentMenthod,
+        setSearchItems:setSearchItems,  
     };
   return (
         <Ctx.Provider value={context}>
