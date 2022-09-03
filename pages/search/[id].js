@@ -91,7 +91,6 @@ const SearchScreen = () => {
       }
 
     },[val,setSortByPrice,filteredByRatings ])
-    // objs.sort((a,b) => a.last_nom - b.last_nom); 
     const [catFlitered, setCatFiltered]= useState('All') ;
     const [brandFiltered, setBrandFiltered]= useState('All');
     const [priceFlitered, setPriceFlitered]= useState('All'); 
@@ -109,9 +108,6 @@ const SearchScreen = () => {
     useEffect(()=>{
        updateStarsHandeler(starsFlitered);       
     },[updateStarsHandeler,starsFlitered ])
-    // useEffect(()=>{
-    //    setSortByPrice(filteredByRatings);
-    // },[filteredByRatings,setFilteredByPrice ])
     useEffect(()=>{
       updateSortingHandeler(sortFlitered);   
     },[sortFlitered,updateSortingHandeler]);

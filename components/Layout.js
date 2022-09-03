@@ -10,7 +10,6 @@ import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import {AiOutlineClose} from 'react-icons/ai'
 import 'react-toastify/dist/ReactToastify.css';
-import { ColorLensOutlined } from '@mui/icons-material'
 import axios from 'axios'
 import Ctx from '../store/CartCtx'
 const Layout = ({title, children}) => {
