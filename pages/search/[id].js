@@ -22,7 +22,7 @@ const SearchScreen = () => {
       if(val!=='All'){
        setFilteredByCatygory(searchItems.filter(item=> item.category=== val));
       }
-    },[val,setFilteredByCatygory,searchItems])
+    },[setFilteredByCatygory,searchItems])
     const updateBrandHandeler =useCallback((val)=>{
       setBrandFiltered(val);
       if(val==='All'){
@@ -31,7 +31,7 @@ const SearchScreen = () => {
       if(val!=='All'){
        setFilteredByBrands(filteredByCatygory.filter(item=> item.brand=== val));
       }
-    },[val,setFilteredByBrands,filteredByCatygory ])
+    },[setFilteredByBrands,filteredByCatygory ])
     const updatePriceHandeler =useCallback((val)=>{
       setPriceFlitered(val);
       if(val==='All'){
@@ -55,7 +55,7 @@ const SearchScreen = () => {
       if(val==='150$ to 200$'){
        setFilteredByPrice(filteredByBrands.filter(item=> item.price> 150 &&item.price<200));
       }
-    },[val,setFilteredByPrice,filteredByBrands ])
+    },[setFilteredByPrice,filteredByBrands ])
     const updateStarsHandeler =useCallback((val)=>{
       setStarsFiltered(val);
       if(val==='All'){
@@ -74,7 +74,7 @@ const SearchScreen = () => {
        setFilteredByRatings(filteredByPrice.filter(item=> item.rating> 4 ));
       }
 
-    },[val,setFilteredByRatings, filteredByPrice])
+    },[setFilteredByRatings, filteredByPrice])
     const updateSortingHandeler= useCallback((val)=>{
       setSortFlitered(val);
         if(val==='price:high to low'){
@@ -90,7 +90,7 @@ const SearchScreen = () => {
         setSortByPrice(filteredByRatings)
       }
 
-    },[val,setSortByPrice,filteredByRatings ])
+    },[setSortByPrice,filteredByRatings ])
     const [catFlitered, setCatFiltered]= useState('All') ;
     const [brandFiltered, setBrandFiltered]= useState('All');
     const [priceFlitered, setPriceFlitered]= useState('All'); 
