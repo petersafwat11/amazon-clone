@@ -1,34 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Amazon Clone Project
+### i made the whole website from scratch using nextJS for routing and serveride rendering and built in functions and component, react hooks,componentand props, tailwindcss for styling, js functions, mongodb as mongoose for storing data, express and node js for backend, next-auth for authentications, react-hook-form for validations in the client-side. 
+### the pages and the funcionalities that the website has:
+* the layout component the wrapper component that have ther header which includes: search input, cart item, login button for login or ther user name if he authenticated that acts as dropdown that has the orders history, link to edit the profile page, logout button, and a dashboard if the user is the admin, and have the main to render the children component, and a simple footer and a side bar have categories of the wesite.
+* the route page that renders a list of product components.
+* the product page that fitches the data for specific element from the database before render the content by the the help of getStaticProps.
+* cart page the renders a table of added to cart products from the contect api and their total amount and a button for checkout that leads to login page if the user is not logged in and register page if you have not register yet, after that reirected back to the shipping page. the user can change the amount of product he wanna order and can clear the cart. if added any product to the cart the react toastify package shows a toast to tell the client that the product added successfully. 
+* shipping screen that have a form to store the shipping detail about the user in the context api and validate the data first. the button in the bottom of the screen leads to the the payment method. 
+* payment page that have radio inputs and two buttons for next and back to store the payment method in the context api.
+* place order screen that have all the data about the order and a button to take action that lead to that specific order. 
+* order screen have the id of the product and the full details about it and the client can pay the amout of the order by paypal and track the order from this page.
+* seacrh input you can search by name of the product, category or brand name. when you press enter or click on the search icon you redirected to the seach page that have some filters like category, price range, brands, ratings and you can sort items low to high and hiw to low. 
+* i made a sign in page and login page and used next-auth cedentials for it. i made client side and serveride validations. 
+* all the website is responsive.
+ #### This Project Is Made By : Peter Safwat. 
