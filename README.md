@@ -1,4 +1,5 @@
 # Amazon Clone Project
+#### demo :https://amazon-clone-jb3d659rk-petersafwat11.vercel.app/
 ### i made the whole website from scratch using nextJS for routing and serveride rendering and built in functions and component, react hooks,componentand props, tailwindcss for styling, js functions, mongodb as mongoose for storing data, express and node js for backend, next-auth for authentications, react-hook-form for validations in the client-side. 
 ### the pages and the funcionalities that the website has:
 * the layout component the wrapper component that have ther header which includes: search input, cart item, login button for login or ther user name if he authenticated that acts as dropdown that has the orders history, link to edit the profile page, logout button, and a dashboard if the user is the admin, and have the main to render the children component, and a simple footer and a side bar have categories of the wesite.
