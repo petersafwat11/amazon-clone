@@ -181,4 +181,5 @@ const ProductsSerched = () => {
     </Layout>
   )
 }
- export default ProductsSerched;
+
+ export default ProductsSerched
