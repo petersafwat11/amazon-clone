@@ -24,11 +24,11 @@ const HeaderCartButton = () => {
   }
   return (
     <button className='relative flex items-center justify-center ' onClick={cartHandeler}>
-      <span >
+      <span className='mx-3 md:mx-0' >
         <BsCart size={35} />
       </span>
-      <span className='mx-3' >Your Cart</span>
-      <span className='absolute top-[4px] left-[10px] text-yellow-300' > {carItems} </span>
+      <span className='mx-3 hidden md:inline-block' >Your Cart</span>
+      <span className='absolute top-[4px] md:left-[10px] left-[23px] text-yellow-300' > {carItems} </span>
     </button>
   );
 };

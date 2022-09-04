@@ -19,9 +19,12 @@ const Cart = () => {
   const router = useRouter()
   return (
     <Layout>
-        <div className='px-6 py-2'>
+        <div className=' lg:px-6 py-2'>
         <p className='text-xl pb-2 font-semibold ' >Shopping Cart</p>
         <div className='grid lg:grid-cols-4 '>
+                    {context.items.length===0&& <h1 className='text-blue-400'>
+                        <Link href='/'> You Have No Items In The Cart. Go Shopping</Link>
+                    </h1> }
             <table className='lg:col-span-3 text-center '>
                 <thead className='border-b '>
                     <tr className='space-x-5 py-2 text-xl' >
@@ -56,7 +59,7 @@ const Cart = () => {
                             <td>{item.price} </td>
                             <td><button onClick={()=>{context.removeItem(item) } } className='bg-blue-700 text-white py-3 px-6 rounded-md' ><AiOutlineClose/> </button> </td>
                         </tr>
-                    )) }
+                    ))}
                 </tbody>
             </table>
             <div className='h-40 shadow rounded-lg flex flex-col p-4 justify-between font-semibold text-lg' >
