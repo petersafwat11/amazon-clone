@@ -182,4 +182,4 @@ const SearchScreen = () => {
   )
 }
 
-export default SearchScreen
+export default SearchScreen;
