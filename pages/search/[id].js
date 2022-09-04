@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState,useCallback } from 'react'
 import Layout from '../../components/Layout';
 import OneProduct from '../../components/Product';
 import Ctx from '../../store/CartCtx';
-const SearchScreen = () => {
+const ProductsSerched = () => {
     const {query}= useRouter();
     const val= query.id; 
     const context = useContext(Ctx);
@@ -181,4 +181,4 @@ const SearchScreen = () => {
     </Layout>
   )
 }
-
+ export default ProductsSerched;
